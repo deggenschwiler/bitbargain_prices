@@ -35,11 +35,11 @@ def bestprice():
         announcement = "Time to buy, price dropped to £" + str(theirprice)
         print(announcement)
         system("say " + announcement)
-    if (theirprice >= latestprice):
+    if theirprice >= (latestprice + 500.0):
         announcement = "^ " + str(theirprice - latestprice)
         print(announcement)
         system("afplay up.mp3")
-    else:
+    elif theirprice <= (latestprice - 500.0):
         announcement = "v" + str(latestprice - theirprice)
         print(announcement)
         system("afplay down.mp3")
