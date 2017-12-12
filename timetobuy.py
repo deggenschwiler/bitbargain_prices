@@ -36,11 +36,11 @@ def bestprice():
         print(announcement)
         system("say " + announcement)
     if theirprice >= (latestprice + 100.0):
-        announcement = theirprice + " --- ^ " + str(theirprice - latestprice) + " " +  str(((theirprice - latestprice)/latestprice) * 100) + "%"
+        announcement = str(theirprice) + " --- ^ " + str(theirprice - latestprice) + " " +  str(((theirprice - latestprice)/latestprice) * 100.0) + "%"
         print(announcement)
         system("afplay up.mp3")
     elif theirprice <= (latestprice - 100.0):
-        announcement = theirprice + " --- v " + str(latestprice - theirprice) + " " +  str(((latestprice - theirprice)/latestprice) * 100) + "%"
+        announcement = str(theirprice) + " --- v " + str(latestprice - theirprice) + " " +  str(((latestprice - theirprice)/latestprice) * 100.0) + "%"
         print(announcement)
         system("afplay down.mp3")
     latestprice = theirprice
