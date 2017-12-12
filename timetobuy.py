@@ -22,7 +22,7 @@ ua = UserAgent()
 #function to check price is the best and reasonable
 def bestprice():
     #set random timout to not annoy the site owner
-    timeout = random.randrange(240,720,1)
+    timeout = random.randrange(240, 300,1)
     #print how long it's going to wait this round
     print("-------------- " + str(timeout) + "s --------------")
 
@@ -35,19 +35,19 @@ def bestprice():
         announcement = "Time to buy, price dropped to £" + str(theirprice)
         print(announcement)
         system("say " + announcement)
-    if theirprice >= (latestprice + 500.0):
-        announcement = "^ " + str(theirprice - latestprice)
+    if theirprice >= (latestprice + 100.0):
+        announcement = theirprice + " --- ^ " + str(theirprice - latestprice) + " " +  str(()(theirprice - latestprice)/latestprice) * 100) + "%"
         print(announcement)
         system("afplay up.mp3")
-    elif theirprice <= (latestprice - 500.0):
-        announcement = "v" + str(latestprice - theirprice)
+    elif theirprice <= (latestprice - 100.0):
+        announcement = theirprice + " --- v " + str(latestprice - theirprice) + " " +  str(()(latestprice - theirprice)/latestprice) * 100) + "%"
         print(announcement)
         system("afplay down.mp3")
     latestprice = theirprice
     time.sleep(timeout)
 
 global latestprice
-latestprice = 10000.0
+latestprice = 12000.0
 # Do until I say stop
 while(True):
     # set target api and fake user agent
